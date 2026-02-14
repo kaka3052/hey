@@ -21,15 +21,15 @@ ATTACK_COLOR = (255, 200, 0)
 PROJECTILE_COLOR = (255, 120, 0)
 
 GRAVITY = 0.8
-PLAYER_SPEED = 4
+PLAYER_SPEED = 4.5
 JUMP_VELOCITY = -12
 
-PLAYER_MAX_HEALTH = 12
-ENEMY_MAX_HEALTH = 6
-RANGED_MAX_HEALTH = 4
-BASE_ATTACK_DAMAGE = 2
-ENEMY_DAMAGE = 1
-ATTACK_COOLDOWN = 0.28  # seconds between allowed attacks
+PLAYER_MAX_HEALTH = 14
+ENEMY_MAX_HEALTH = 8
+RANGED_MAX_HEALTH = 5
+BASE_ATTACK_DAMAGE = 3
+ENEMY_DAMAGE = 2
+ATTACK_COOLDOWN = 0.22  # seconds between allowed attacks (faster)
 ATTACK_DURATION = 0.12
 COMBO_WINDOW = 0.35  # time allowed between presses to chain combos
 
@@ -207,7 +207,7 @@ class RangedEnemy(Fighter):
             dirx = 1 if dx > 0 else -1
             px = self.rect.centerx + dirx * 20
             py = self.rect.centery
-            projectiles.append({'rect': pygame.Rect(px, py, 10, 6), 'vx': dirx * 5, 'life': 3.0})
+            projectiles.append({'rect': pygame.Rect(px, py, 10, 6), 'vx': dirx * 6, 'life': 3.0})
             self.shoot_cooldown = 1.8
         else:
             self.shoot_cooldown -= 1.0 / FPS
